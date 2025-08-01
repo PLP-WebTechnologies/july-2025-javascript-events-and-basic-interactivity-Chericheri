@@ -1,0 +1,370 @@
+/* ===== Base Styles & Variables ===== */
+:root {
+    /* Color Scheme */
+    --primary-color: #4361ee;
+    --primary-dark: #3a56d4;
+    --secondary-color: #3f37c9;
+    --accent-color: #f72585;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-light: #e9ecef;
+    --gray-medium: #adb5bd;
+    --gray-dark: #495057;
+    --success-color: #4cc9f0;
+    --error-color: #f72585;
+    
+    /* Typography */
+    --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Georgia', serif;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    
+    /* Border */
+    --border-radius: 0.5rem;
+    --border-width: 1px;
+    --border-color: var(--gray-light);
+    
+    /* Shadow */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Transition */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --light-color: #212529;
+    --dark-color: #f8f9fa;
+    --gray-light: #343a40;
+    --gray-medium: #495057;
+    --gray-dark: #e9ecef;
+    --border-color: var(--gray-medium);
+}
+
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+    padding: var(--space-xl);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* ===== Utility Classes ===== */
+.hidden {
+    display: none !important;
+}
+
+/* ===== Card Component ===== */
+.card {
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    transition: all var(--transition-normal);
+}
+
+/* ===== Header Styles ===== */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+/* ===== Button Styles ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: var(--border-width) solid transparent;
+    gap: var(--space-sm);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+    background-color: var(--gray-light);
+    color: var(--dark-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--gray-medium);
+    color: white;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--dark-color);
+    font-size: 1.25rem;
+    padding: var(--space-sm);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.btn-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* ===== Event Handling Section ===== */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+}
+
+.event-demo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.interactive-box {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.interactive-box:hover {
+    background-color: var(--primary-dark);
+}
+
+/* ===== Interactive Components ===== */
+.component {
+    margin-bottom: var(--space-xl);
+}
+
+/* Counter Component */
+.counter-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+#counterValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-width: 3rem;
+    text-align: center;
+}
+
+/* Accordion Component */
+.accordion {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-top: var(--space-md);
+    border: var(--border-width) solid var(--border-color);
+}
+
+.accordion-item {
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: var(--space-md);
+    background-color: var(--gray-light);
+    border: none;
+    text-align: left;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color var(--transition-fast);
+}
+
+.accordion-header:hover {
+    background-color: var(--gray-medium);
+    color: white;
+}
+
+.accordion-header i {
+    transition: transform var(--transition-fast);
+}
+
+.accordion-item.active .accordion-header i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+    background-color: var(--light-color);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 300px;
+    padding: var(--space-md);
+}
+
+/* ===== Form Validation ===== */
+.form-group {
+    margin-bottom: var(--space-lg);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: var(--space-md);
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: var(--space-sm);
+    height: 1rem;
+}
+
+.password-requirements {
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: var(--border-radius);
+}
+
+.password-requirements ul {
+    list-style: none;
+    margin-top: var(--space-sm);
+}
+
+.password-requirements li {
+    margin-bottom: var(--space-xs);
+    position: relative;
+    padding-left: var(--space-lg);
+}
+
+.password-requirements li::before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: var(--error-color);
+}
+
+.password-requirements li.valid::before {
+    content: "✓";
+    color: var(--success-color);
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+}
+
+.success-message {
+    text-align: center;
+    padding: var(--space-xl);
+    background-color: rgba(76, 201, 240, 0.1);
+    border-radius: var(--border-radius);
+    margin-top: var(--space-xl);
+}
+
+.success-message i {
+    font-size: 3rem;
+    color: var(--success-color);
+    margin-bottom: var(--space-md);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    body {
+        padding: var(--space-md);
+    }
+    
+    .card {
+        padding: var(--space-lg);
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+}

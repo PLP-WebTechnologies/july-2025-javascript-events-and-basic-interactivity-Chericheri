@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Components | Professional Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Theme Toggle -->
+        <header class="app-header">
+            <h1>Interactive Web Components</h1>
+            <button id="themeToggle" class="btn-icon" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+
+        <!-- Part 1: Event Handling -->
+        <section class="card" id="event-section">
+            <h2><i class="fas fa-mouse-pointer"></i> Event Handling</h2>
+            
+            <div class="grid-container">
+                <!-- Click Events -->
+                <div class="event-demo">
+                    <h3>Click Events</h3>
+                    <button id="clickDemo" class="btn-primary">Click Me</button>
+                    <div id="clickCounter">Clicked 0 times</div>
+                </div>
+                
+                <!-- Mouse Events -->
+                <div class="event-demo">
+                    <h3>Mouse Events</h3>
+                    <div id="mouseBox" class="interactive-box">
+                        Hover over me
+                    </div>
+                    <div id="mousePosition">Position: (0, 0)</div>
+                </div>
+                
+                <!-- Keyboard Events -->
+                <div class="event-demo">
+                    <h3>Keyboard Events</h3>
+                    <input type="text" id="keyboardInput" placeholder="Type something...">
+                    <div id="keyboardOutput">Last key pressed: </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 2: Interactive Components -->
+        <section class="card" id="components-section">
+            <h2><i class="fas fa-puzzle-piece"></i> Interactive Components</h2>
+            
+            <!-- Component 1: Counter with Increment/Decrement -->
+            <div class="component">
+                <h3>Interactive Counter</h3>
+                <div class="counter-container">
+                    <button id="decrementBtn" class="btn-icon" aria-label="Decrease value">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <span id="counterValue">0</span>
+                    <button id="incrementBtn" class="btn-icon" aria-label="Increase value">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button id="resetCounter" class="btn-secondary">Reset</button>
+                </div>
+            </div>
+            
+            <!-- Component 2: FAQ Accordion -->
+            <div class="component">
+                <h3>FAQ Accordion</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            What is JavaScript?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>JavaScript is a programming language that enables interactive web pages. It is a core technology of the web, alongside HTML and CSS.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Why use event listeners?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Event listeners allow your web pages to respond to user interactions, creating dynamic and engaging experiences without page reloads.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            How important is form validation?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Form validation is crucial for data integrity, security, and user experience. It helps prevent incorrect submissions and guides users.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 3: Form Validation -->
+        <section class="card" id="form-section">
+            <h2><i class="fas fa-clipboard-check"></i> Form Validation</h2>
+            
+            <form id="registrationForm" novalidate>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+                    <div class="error-message" id="nameError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a password">
+                    <div class="error-message" id="passwordError"></div>
+                    <div class="password-requirements">
+                        <p>Password must contain:</p>
+                        <ul>
+                            <li id="reqLength">At least 8 characters</li>
+                            <li id="reqUpper">One uppercase letter</li>
+                            <li id="reqNumber">One number</li>
+                            <li id="reqSpecial">One special character</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
+                    <div class="error-message" id="confirmPasswordError"></div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Register</button>
+                    <button type="reset" class="btn-secondary">Clear Form</button>
+                </div>
+            </form>
+            
+            <div id="formSuccess" class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h3>Registration Successful!</h3>
+                <p>Thank you for signing up. We've sent a confirmation email to your address.</p>
+                <button id="resetForm" class="btn-secondary">Submit Another</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
